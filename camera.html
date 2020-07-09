@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Western
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        .shoot-button {
+            z-index: 0;
+            display: block;
+            margin: 10px;
+            box-shadow: 3px 4px 0px 0px #8a2a21;
+            background-color: #c62d1f;
+            border-radius: 18px;
+            border: 1px solid #d02718;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 17px;
+            padding: 7px 25px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #810e05;
+        }
+        
+        .multiline {
+            white-space: pre-wrap;
+        }
+        
+        .shoot-button:hover {
+            background-color: #f24437;
+        }
+        
+        .shoot-button:active {
+            position: relative;
+            top: 1px;
+        }
+        
+        html {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+        
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            background-image: url('static/background.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        
+        .canvas-container {
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+        
+        .canvas-container>canvas {
+            z-index: 0;
+            position: absolute;
+            top: 20px;
+        }
+        
+        a:link,
+        a:visited,
+        a:hover {
+            color: #ffffff;
+            text-decoration: none;
+            display: inline-block;
+            text-align: left;
+        }
+        
+        .supporttext {
+            white-space: pre-wrap;
+            margin-top: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            width: 341px;
+        }
+    </style>
+
+    <script src="static/jquery.js"></script>
+    <script src="static/camera.js"></script>
+
+
+</head>
+
+<body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/da_DK/sdk.js#xfbml=1&version=v7.0" nonce="YjnrRaPv"></script>
+
+    <div class="content">
+        <video id="vid-record" autoplay hidden></video>
+        <div id="container" class="canvas-container">
+
+            <canvas id="vid-show" width="341" height="512"></canvas>
+            <input onClick="share();" class="shoot-button" id="vid-take" type="button" value="#SupportLoppen" />
+            <a target="_blank" href="https://www.gofundme.com/f/support-loppen" class="shoot-button" type="button" value="Goto Crowdfund!">Crowdfund</a>
+
+
+
+
+
+        </div>
+        <div class="supporttext">
+            <a target="_blank" href="https://www.gofundme.com/f/support-loppen" value="Help us save Loppen!">
+                Help us save Loppen!
+
+There is no easy way to say this. But Loppen is threatened with closure by January 1st 2021.
+
+In light of the COVID-19 pandemic, we have been forced to shut down our venue. The situation comes in the wake of a refusal to grant operating funds from the State Arts Committee and an expired financial support agreement with the City of Copenhagen by the end of 2020. Consequently, we do not know when we can open again.
+
+Even with governments current support packages the situation looks dire. With commitments to our staff, our volunteers and our fixed expenses, keeping the doors closed costs us over 40.000 dkk a month.
+
+To ensure that our volunteers, employees, musicians and audiences have a place to return to, and to ensure that we can continue to offer concerts with the latest, best and most interesting live acts in many years to come, we have launched a crowdfund to help with some of the costs.
+
+As the amount suggests, we need more financial help than we can handle on our own. We are therefore eternally grateful for every penny you can contribute with in this difficult situation.
+
+We're looking forward to seeing hopefully seeing you sing and dance along to concerts at Loppen soon again.
+
+Love from the music collective Loppen
+            </a>
+
+        </div>
+    </div>
+
+</body>
+
+</div>
+</body>
+
+</html>
