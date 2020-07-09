@@ -92,7 +92,7 @@ window.addEventListener("load", function() {
 
     // [2] ASK FOR USER PERMISSION TO ACCESS CAMERA
     // WILL FAIL IF NO CAMERA IS ATTACHED TO COMPUTER
-    navigator.mediaDevices.getUserMedia({ video: true })
+    navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: { exact: 'environment' } } })
         .then(function(stream) {
             console.log("got camera")
                 // [3] SHOW VIDEO STREAM ON VIDEO TAG
@@ -107,8 +107,24 @@ window.addEventListener("load", function() {
 
         })
         .catch(function(err) {
-            alert("ERROR");
-            document.getElementById("vid-controls").innerHTML = "Please enable access and attach a camera";
+            navigator.mediaDevices.getUserMedia({ audio: false, video: true })
+                .then(function(stream) {
+                    console.log("got camera")
+                        // [3] SHOW VIDEO STREAM ON VIDEO TAG
+                    video.srcObject = stream;
+                    video.play();
+                    video.onplaying = function() {
+
+                        // call our loop only when the video is playing
+                        raf = requestAnimationFrame(loop);
+                    };
+                    // [4] WHEN WE CLICK ON "TAKE PHOTO" BUTTON
+
+                })
+                .catch(function(err) {
+                    alert("ERROR");
+                    document.getElementById("vid-controls").innerHTML = "Please enable access and attach a camera";
+                });
         });
 });
 
@@ -211,7 +227,6 @@ var hasWhitePaper = function(pixels) {
 
 
     if (L > 170 && W > 170) {
-        console.log("white")
         return true
     }
     return false

@@ -11,7 +11,7 @@ app.config["SERVER_NAME"] = "localhost:443"
 
 app.static("/static", "./static")
 
-app.static("/", "./camera.html", content_type="text/html; charset=utf-8")
+app.static("/", "./index.html", content_type="text/html; charset=utf-8")
 
 
 @app.route("/image", methods=["POST",])
